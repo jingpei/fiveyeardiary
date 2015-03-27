@@ -1,0 +1,169 @@
+$brightteal: #2ec6e2;
+$lightteal: #a0dde8;
+$lightog: #daf9ff;
+$lightgray: #d8d8d8;
+$margin: 10px;
+$padding: 5px;
+$font-family-decorative: 'Sacramento', cursive;
+$font-size-decorative: 60px;
+$font-family: 'Raleway', sans-serif;
+$font-size: 14px;
+
+
+$break-size: 760px;
+
+@import url(http://fonts.googleapis.com/css?family=Sacramento);
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
+body {
+	font-family: $font-family;
+	font-size: $font-size;
+	margin: 0;
+	margin-top: 0;
+	min-height: 100%;
+}
+
+.header {
+	height: 50px;
+	text-align: center;
+	-webkit-box-shadow: 0px 2px 4px $lightgray;
+	-moz-box-shadow: 0px 2px 4px $lightgray;
+	box-shadow: 0px 2px 4px $lightgray;
+
+	.title {
+		margin: $margin;
+		float: left;
+		height: 80%;
+	}
+
+	.search {
+		margin: $margin;
+		height: 80%;
+		float:right;
+	}
+
+	.title, input {
+		height: 50%;
+	}
+}
+
+.main {
+	//margin-top: $margin*3;
+	clear: both;
+
+	.grp-question{
+		margin-top: $margin*3;
+		width: 100%;
+		
+		@media screen and (min-width: $break-size) {
+			width: 48%;
+			float: left;
+		}
+		.circle{
+			margin: 0 auto;
+			width: 200px;
+			height: 200px;
+			background-color: $brightteal;
+			border: 1px solid $brightteal;
+			text-align: center;
+			font-family: $font-family-decorative;
+			font-size: $font-size-decorative;
+			position: relative;
+
+			border-radius: 50%;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			
+			@media screen and (min-width: $break-size) {
+				width: 300px;
+				height: 300px;
+			}
+
+			.day {
+				margin: 30% auto;
+			}
+		}
+
+		.question {
+			h3 {
+				width: 80%;
+				margin: $margin*2 auto;
+				font-family: $font-family;
+				text-align: center;
+			}	
+		}
+
+		.form {
+			width: 80%;
+			margin: 0 auto;
+			margin-bottom: $margin*3;
+
+			textarea {
+				width: 100%;
+				padding: $padding;
+				margin: $margin 0;
+				border: 1px solid $brightteal;
+				font-family: $font-family;
+				font-size: $font-size;
+
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+
+				-webkit-border-radius:5px;
+				-moz-border-radius:5px;
+				border-radius: 5px;
+			}
+
+			.btn-add-answer {
+				background-color: $brightteal;
+				border: none;
+				padding: $padding $padding*2;
+				font-family: $font-family;
+				font-size: $font-size;
+
+				-webkit-border-radius:5px;
+				-moz-border-radius:5px;
+				border-radius: 5px;
+			}
+		}
+	}
+
+	.ctn-answers {
+		width: 100%;
+		min-height: 100%;
+		//background-color: #e5eaeb;
+
+		@media screen and (min-width: $break-size) {
+			width: 48%;
+			margin-right: $margin*2;
+			float: right;
+			overflow-y: scroll;
+		}
+
+		.group {
+			width: 100%;
+			margin: $margin*2 auto;
+			border-top: 1px solid $lightteal;
+			
+			@media screen and (min-width: $break-size) {
+				background-color: $lightteal;
+
+				-webkit-border-radius:5px;
+				-moz-border-radius:5px;
+				border-radius: 5px;
+			}
+
+			.date{
+				padding: $padding*2 $padding*2;
+				font-weight: bold;
+			}
+			.answer {
+				padding: $padding*2 $padding*2;
+				line-height: 1.8em;
+				//background-color: $lightog;
+			}
+		}
+	}
+}
+
