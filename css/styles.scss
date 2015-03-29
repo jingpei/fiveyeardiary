@@ -2,11 +2,14 @@ $brightteal: #2ec6e2;
 $lightteal: #a0dde8;
 $lightog: #daf9ff;
 $lightgray: #d8d8d8;
+$backgroundcolor: #f4e2ca;
 $margin: 10px;
 $padding: 5px;
 $font-family-decorative: 'Sacramento', cursive;
-$font-size-decorative: 60px;
-$font-family: 'Raleway', sans-serif;
+$font-size-decorative: 45px;
+$font-break-size-decorative: 60px;
+//$font-family: 'Raleway', sans-serif;
+$font-family: 'Lora', serif;
 $font-size: 14px;
 
 
@@ -14,6 +17,7 @@ $break-size: 760px;
 
 @import url(http://fonts.googleapis.com/css?family=Sacramento);
 @import url(http://fonts.googleapis.com/css?family=Raleway);
+@import url(http://fonts.googleapis.com/css?family=Lora);
 
 body {
 	font-family: $font-family;
@@ -24,26 +28,17 @@ body {
 }
 
 .header {
-	height: 50px;
+
+	height: 60px;
 	text-align: center;
 	-webkit-box-shadow: 0px 2px 4px $lightgray;
 	-moz-box-shadow: 0px 2px 4px $lightgray;
 	box-shadow: 0px 2px 4px $lightgray;
 
 	.title {
-		margin: $margin;
-		float: left;
-		height: 80%;
-	}
-
-	.search {
-		margin: $margin;
-		height: 80%;
-		float:right;
-	}
-
-	.title, input {
-		height: 50%;
+		height: 100%;
+		font-family: $font-family-decorative;
+		font-size: $font-size-decorative;
 	}
 }
 
@@ -77,6 +72,7 @@ body {
 			@media screen and (min-width: $break-size) {
 				width: 300px;
 				height: 300px;
+				font-size: $font-break-size-decorative;
 			}
 
 			.day {
@@ -129,39 +125,72 @@ body {
 		}
 	}
 
-	.ctn-answers {
+	.ctn-answers-search {
 		width: 100%;
 		min-height: 100%;
+		overflow-y: scroll;
 		//background-color: #e5eaeb;
 
 		@media screen and (min-width: $break-size) {
 			width: 48%;
 			margin-right: $margin*2;
 			float: right;
-			overflow-y: scroll;
 		}
 
-		.group {
+		.searchOption {
 			width: 100%;
-			margin: $margin*2 auto;
-			border-top: 1px solid $lightteal;
-			
-			@media screen and (min-width: $break-size) {
-				background-color: $lightteal;
+			margin: $margin auto;
+
+			input {
+				margin: $margin;
+			}
+
+			input[name="search"]{
+				padding: $padding;
+				margin: $margin;
+				border: 1px solid $brightteal;			
+				font-family: $font-family;
+				font-size: $font-size;
 
 				-webkit-border-radius:5px;
 				-moz-border-radius:5px;
 				border-radius: 5px;
 			}
+		}
 
-			.date{
-				padding: $padding*2 $padding*2;
-				font-weight: bold;
-			}
-			.answer {
-				padding: $padding*2 $padding*2;
-				line-height: 1.8em;
-				//background-color: $lightog;
+		.ctn-answers {
+			.group {
+				width: 100%;
+				margin: $margin auto;
+				border-top: 1px solid $lightteal;
+				
+				.date{
+					margin: 0 $margin $margin $margin;
+					margin-bottom: $margin*2;
+					padding: 0 $padding;
+					float: right;
+					width: 90px;
+					background-color: $lightteal;
+					font-weight: bold;
+					text-align: center;
+
+					-webkit-border-bottom-left-radius:5px;
+					 -moz-border-bottom-left-radius:5px;
+					 border-bottom-left-radius: 5px;
+
+					 -webkit-border-bottom-right-radius:5px;
+					 -moz-border-bottom-right-radius:5px;
+					 border-bottom-right-radius: 5px;
+
+
+				}
+				.answer {
+					padding: $padding*2 $padding*2;
+					line-height: 1.8em;
+				}
+				.clearfix{
+					clear:both;
+				}
 			}
 		}
 	}

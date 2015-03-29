@@ -2,6 +2,9 @@
 <html>
 <head>
 	<title>Five Year Diary</title>
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-route.js"></script>
+
 	<link rel="stylesheet" href="normalize.css">
 	<link rel="stylesheet" href="css/styles.css">
 </head>
@@ -9,17 +12,14 @@
 
 <div class="header">
 	<div class="title">
-		1 Week Journal
-	</div>
-	<div class="search">
-		<input type="text" placeholder="search"/>
+		one week
 	</div>
 </div>
 
 <div class="main">
 	<div class="grp-question">
 		<div class="circle">
-			<div class="day">Tuesday</div>
+			<div class="day">Wednesday</div>
 		</div>
 
 		<div class="question">
@@ -28,84 +28,114 @@
 		
 		<div class="form">
 			<form name="daily_answer">
-				<textarea name="daily_answer" rows="3" placeholder="Start writing..."></textarea>
+				<textarea name="daily_answer" rows="3" ng-maxlength="400" placeholder="Start writing..."></textarea>
 				<button class="btn-add-answer">Submit</button>
 			</form>	
 		</div>
 	</div>
 	
-	<div class="ctn-answers">
-		<article class="group history">
-			<div class="grp-answer">
-				<div class="date">
-					Long form Date
+	<div class="ctn-answers-search">
+		<div class="searchOption">
+			<form class="searchType">
+				<input type="radio" name="searchType" value="entries"/>Entries
+				<input type="radio" name="searchType" value="date"/>Date
+				<input type="text" name="search" placeholder="Search..." ng-model="searchFor"/>
+			</form>
+		</div>
+		<div class="ctn-answers">
+			<article class="group history">
+				<div class="grp-answer">
+					<div class="date">
+						<p>Sep 23, 2014</p>
+					</div>
+					<div class="answer">
+						Extended answer lalalala move to next row hellow what's up keep going asdfalsdfjaio;we faoiwjef ;ojfas awoei
+						fjaowiejf oafiwej fjaoiwefj ofjaowiefoaiwfja o
+					</div>
+					<div class="clearfix"></div>
 				</div>
-				<div class="answer">
-					Extended answer lalalala move to next row hellow what's up keep going asdfalsdfjaio;we faoiwjef ;ojfas awoei
-					fjaowiejf oafiwej fjaoiwefj ofjaowiefoaiwfja o
+			</article>
+			<article class="group history">
+				<div class="grp-answer">
+					<div class="date">
+						<p>Sep 21, 2014</p>
+					</div>
+					<div class="answer">
+						Really short answer how will this look will it look awkward
+					</div>
+					<div class="clearfix"></div>
 				</div>
-			</div>
-		</article>
-
-		<article class="group history">
-			<div class="grp-answer">
-				<div class="date">
-					Long form Date
+			</article>
+			<article class="group history">
+				<div class="grp-answer">
+					<div class="date">
+						<p>Sep 21, 2014</p>
+					</div>
+					<div class="answer">
+						Really short answer how will this look will it look awkward
+					</div>
+					<div class="clearfix"></div>
 				</div>
-				<div class="answer">
-					Extended answer lalalala move to next row hellow what's up keep going asdfalsdfjaio;we faoiwjef ;ojfas awoei
-					fjaowiejf oafiwej fjaoiwefj ofjaowiefoaiwfja o
+			</article>
+			<article class="group history">
+				<div class="grp-answer">
+					<div class="date">
+						<p>Sep 23, 2014</p>
+					</div>
+					<div class="answer">
+						Extended answer lalalala move to next row hellow what's up keep going asdfalsdfjaio;we faoiwjef ;ojfas awoei
+						fjaowiejf oafiwej fjaoiwefj ofjaowiefoaiwfja o
+					</div>
+					<div class="clearfix"></div>
 				</div>
-			</div>
-		</article>
-
-		<article class="group history">
-			<div class="grp-answer">
-				<div class="date">
-					Long form Date
+			</article>
+			<article class="group history">
+				<div class="grp-answer">
+					<div class="date">
+						<p>Sep 21, 2014</p>
+					</div>
+					<div class="answer">
+						Really short answer how will this look will it look awkward
+					</div>
+					<div class="clearfix"></div>
 				</div>
-				<div class="answer">
-					Extended answer lalalala move to next row hellow what's up keep going asdfalsdfjaio;we faoiwjef ;ojfas awoei
-					fjaowiejf oafiwej fjaoiwefj ofjaowiefoaiwfja o
+			</article>
+			<article class="group history">
+				<div class="grp-answer">
+					<div class="date">
+						<p>Sep 23, 2014</p>
+					</div>
+					<div class="answer">
+						Extended answer lalalala move to next row hellow what's up keep going asdfalsdfjaio;we faoiwjef ;ojfas awoei
+						fjaowiejf oafiwej fjaoiwefj ofjaowiefoaiwfja o
+					</div>
+					<div class="clearfix"></div>
 				</div>
-			</div>
-		</article>
-
-		<article class="group history">
-			<div class="grp-answer">
-				<div class="date">
-					Long form Date
+			</article>
+			<article class="group history">
+				<div class="grp-answer">
+					<div class="date">
+						<p>Sep 23, 2014</p>
+					</div>
+					<div class="answer">
+						Extended answer lalalala move to next row hellow what's up keep going asdfalsdfjaio;we faoiwjef ;ojfas awoei
+						fjaowiejf oafiwej fjaoiwefj ofjaowiefoaiwfja o
+					</div>
+					<div class="clearfix"></div>
 				</div>
-				<div class="answer">
-					Extended answer lalalala move to next row hellow what's up keep going asdfalsdfjaio;we faoiwjef ;ojfas awoei
-					fjaowiejf oafiwej fjaoiwefj ofjaowiefoaiwfja o
+			</article>
+			<article class="group history">
+				<div class="grp-answer">
+					<div class="date">
+						<p>Sep 21, 2014</p>
+					</div>
+					<div class="answer">
+						Really short answer how will this look will it look awkward
+					</div>
+					<div class="clearfix"></div>
 				</div>
-			</div>
-		</article>
-
-		<article class="group history">
-			<div class="grp-answer">
-				<div class="date">
-					Long form Date
-				</div>
-				<div class="answer">
-					Extended answer lalalala move to next row hellow what's up keep going asdfalsdfjaio;we faoiwjef ;ojfas awoei
-					fjaowiejf oafiwej fjaoiwefj ofjaowiefoaiwfja o
-				</div>
-			</div>
-		</article>
-
-		<article class="group history">
-			<div class="grp-answer">
-				<div class="date">
-					Long form Date
-				</div>
-				<div class="answer">
-					Extended answer lalalala move to next row hellow what's up keep going asdfalsdfjaio;we faoiwjef ;ojfas awoei
-					fjaowiejf oafiwej fjaoiwefj ofjaowiefoaiwfja o
-				</div>
-			</div>
-		</article>
+			</article>
+		</div>
 	</div>
 </div>
 
