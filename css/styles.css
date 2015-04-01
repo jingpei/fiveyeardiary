@@ -113,6 +113,8 @@ body {
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 5px; }
+      .main .ctn-answers-search .searchOption .searchType {
+        padding-left: 10px; }
     .main .ctn-answers-search .ctn-answers .group {
       width: 100%;
       margin: 10px auto;

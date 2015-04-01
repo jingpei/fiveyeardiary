@@ -1,0 +1,58 @@
+<div class="header">
+	<div class="title">
+		one week
+	</div>
+</div>
+
+<div class="main">
+	<div class="grp-question">
+		<div class="circle">
+			<div class="day">Wednesday</div>
+		</div>
+
+		<div class="question">
+			<h3>What was something you were nervous to do? </h3>
+		</div>
+
+		<div class="form-error" ng-show="error_text !== ''">
+			{{ error_text }}
+		</div>
+		
+		<div class="form">
+			<form name="daily_answer" novalidate>
+				<textarea name="daily_answer" rows="3" ng-maxlength="400" placeholder="Start writing..." required ng-model="entry_text.entry"></textarea>
+				<button class="btn-add-answer" ng-click="addEntry(entry_text)">Submit</button>
+			</form>	
+		</div>
+	</div>
+	
+	<div class="ctn-answers-search">
+		<div class="searchOption">
+<!-- 			<form class="searchType" ng-switch on="searchType">
+				<input type="radio" ng-model="searchType" value="entry"/>Entries
+				<input type="radio" ng-model="searchType" value="date"/>Date
+				<select ng-switch-when="date" ng-model="searchDate" ng-options="answer.date for answer in answers"></select>
+				<input type="text" name="search" ng-switch-default placeholder="Search..." ng-model="searchEntry"/>
+			</form> -->
+			<form class="searchType">
+				<!-- <input type="radio" ng-model="searchType" ng-value="entry" checked="checked" />Entries
+				<input type="radio" ng-model="searchType" ng-value="date"/>Date -->
+				<!-- <label>Archive</label><select ng-model="searchFor" ng-options="answer.date for answer in answers"></select>	 -->
+				<label>Look Back</label><input type="text" name="search" placeholder="Search..." ng-model="searchFor"/>
+			</form>
+		</div>
+		<div class="ctn-answers">
+			<article class="group history animate-entry" ng-repeat="answer in answers | orderBy: 'date':true | filter: searchFor">
+				<div class="grp-answer">
+					<div class="date">
+						<p>{{ answer.date | date: mediumDate }}</p>
+					</div>
+					<div class="answer">
+						{{ answer.entry }}
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</article>
+		</div>
+	</div>
+</div>
