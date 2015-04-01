@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
 	<title>Five Year Diary</title>
 	<script src="js/angular.min.js"></script>
 	<script src="js/angular-route.js"></script>
+	<script src="js/angular-animate.js"></script>
 
-	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body ng-controller="SingleDayListController">
 
 <div class="header">
 	<div class="title">
@@ -25,112 +26,42 @@
 		<div class="question">
 			<h3>What was something you were nervous to do? </h3>
 		</div>
+
+		<div class="form-error" ng-show="error_text !== ''">
+			{{ error_text }}
+		</div>
 		
 		<div class="form">
-			<form name="daily_answer">
-				<textarea name="daily_answer" rows="3" ng-maxlength="400" placeholder="Start writing..."></textarea>
-				<button class="btn-add-answer">Submit</button>
+			<form name="daily_answer" novalidate>
+				<textarea name="daily_answer" rows="3" ng-maxlength="400" placeholder="Start writing..." required ng-model="entry_text.entry"></textarea>
+				<button class="btn-add-answer" ng-click="addEntry(entry_text)">Submit</button>
 			</form>	
 		</div>
 	</div>
 	
 	<div class="ctn-answers-search">
 		<div class="searchOption">
+<!-- 			<form class="searchType" ng-switch on="searchType">
+				<input type="radio" ng-model="searchType" value="entry"/>Entries
+				<input type="radio" ng-model="searchType" value="date"/>Date
+				<select ng-switch-when="date" ng-model="searchDate" ng-options="answer.date for answer in answers"></select>
+				<input type="text" name="search" ng-switch-default placeholder="Search..." ng-model="searchEntry"/>
+			</form> -->
 			<form class="searchType">
-				<input type="radio" name="searchType" value="entries"/>Entries
-				<input type="radio" name="searchType" value="date"/>Date
-				<input type="text" name="search" placeholder="Search..." ng-model="searchFor"/>
+				<!-- <input type="radio" ng-model="searchType" ng-value="entry" checked="checked" />Entries
+				<input type="radio" ng-model="searchType" ng-value="date"/>Date -->
+				<!-- <label>Archive</label><select ng-model="searchFor" ng-options="answer.date for answer in answers"></select>	 -->
+				<label>Look Back</label><input type="text" name="search" placeholder="Search..." ng-model="searchFor"/>
 			</form>
 		</div>
 		<div class="ctn-answers">
-			<article class="group history">
+			<article class="group history animate-entry" ng-repeat="answer in answers | orderBy: 'date':true | filter: searchFor">
 				<div class="grp-answer">
 					<div class="date">
-						<p>Sep 23, 2014</p>
+						<p>{{ answer.date | date: mediumDate }}</p>
 					</div>
 					<div class="answer">
-						Extended answer lalalala move to next row hellow what's up keep going asdfalsdfjaio;we faoiwjef ;ojfas awoei
-						fjaowiejf oafiwej fjaoiwefj ofjaowiefoaiwfja o
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</article>
-			<article class="group history">
-				<div class="grp-answer">
-					<div class="date">
-						<p>Sep 21, 2014</p>
-					</div>
-					<div class="answer">
-						Really short answer how will this look will it look awkward
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</article>
-			<article class="group history">
-				<div class="grp-answer">
-					<div class="date">
-						<p>Sep 21, 2014</p>
-					</div>
-					<div class="answer">
-						Really short answer how will this look will it look awkward
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</article>
-			<article class="group history">
-				<div class="grp-answer">
-					<div class="date">
-						<p>Sep 23, 2014</p>
-					</div>
-					<div class="answer">
-						Extended answer lalalala move to next row hellow what's up keep going asdfalsdfjaio;we faoiwjef ;ojfas awoei
-						fjaowiejf oafiwej fjaoiwefj ofjaowiefoaiwfja o
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</article>
-			<article class="group history">
-				<div class="grp-answer">
-					<div class="date">
-						<p>Sep 21, 2014</p>
-					</div>
-					<div class="answer">
-						Really short answer how will this look will it look awkward
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</article>
-			<article class="group history">
-				<div class="grp-answer">
-					<div class="date">
-						<p>Sep 23, 2014</p>
-					</div>
-					<div class="answer">
-						Extended answer lalalala move to next row hellow what's up keep going asdfalsdfjaio;we faoiwjef ;ojfas awoei
-						fjaowiejf oafiwej fjaoiwefj ofjaowiefoaiwfja o
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</article>
-			<article class="group history">
-				<div class="grp-answer">
-					<div class="date">
-						<p>Sep 23, 2014</p>
-					</div>
-					<div class="answer">
-						Extended answer lalalala move to next row hellow what's up keep going asdfalsdfjaio;we faoiwjef ;ojfas awoei
-						fjaowiejf oafiwej fjaoiwefj ofjaowiefoaiwfja o
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</article>
-			<article class="group history">
-				<div class="grp-answer">
-					<div class="date">
-						<p>Sep 21, 2014</p>
-					</div>
-					<div class="answer">
-						Really short answer how will this look will it look awkward
+						{{ answer.entry }}
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -139,6 +70,71 @@
 	</div>
 </div>
 
+<script>
+
+function SingleDayListController( $scope ){
+	$scope.answers = [
+		{ date: '2014/10/30', entry: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in'},
+		{ date: '2014/11/07', entry: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.'},
+		{ date: '2014/11/14', entry: 'Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.'}
+	];
+
+	$scope.error_text = "";
+
+	$scope.disableEntry = function(){
+		var today = new Date();
+		var date = getFormattedDate(today);
+		var check_date = $scope.answers
+							.map(function( obj ){
+								return obj.date;
+							})
+							.filter(function( obj ){
+								return obj === date;
+							});
+		return check_date.length > 0;
+	}
+
+	$scope.addEntry = function( new_entry ){
+		var today = new Date();
+		var date = getFormattedDate(today);
+		var check_date = $scope.answers
+							.map(function( obj ){
+								return obj.date;
+							})
+							.filter(function( obj ){
+								return obj === date;
+							});
+
+		var disableEntry = function(e){
+			return check_date.length > 0;
+		};
+
+		if ( new_entry === null || !new_entry.entry ){
+			$scope.error_text = "No input!";
+		}
+		else if ( check_date.length > 0){
+			$scope.error_text = "Come back for tomorrow's question!";
+			$scope.entry_text = {}; 
+		}
+		else{
+			new_entry.date = date;
+			$scope.answers.push( new_entry );
+			$scope.entry_text = {};
+		}
+	}
+
+};
+
+function getFormattedDate(date) {
+  var year = date.getFullYear();
+  var month = (1 + date.getMonth()).toString();
+  month = month.length > 1 ? month : '0' + month;
+  var day = date.getDate().toString();
+  day = day.length > 1 ? day : '0' + day;
+  return year + '/' + month + '/' + day;
+}
+
+</script>
 </body>
 </html>
 

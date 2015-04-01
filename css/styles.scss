@@ -2,6 +2,7 @@ $brightteal: #2ec6e2;
 $lightteal: #a0dde8;
 $lightog: #daf9ff;
 $lightgray: #d8d8d8;
+$errorgray: #d9e5e9;
 $backgroundcolor: #f4e2ca;
 $margin: 10px;
 $padding: 5px;
@@ -89,6 +90,21 @@ body {
 			}	
 		}
 
+		.form-error{
+			width: 80%;
+			margin: 0 auto;
+			padding: $padding;
+			background-color: $lightgray;
+
+			-webkit-border-radius:5px;
+			-moz-border-radius:5px;
+			border-radius: 5px;
+
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
 		.form {
 			width: 80%;
 			margin: 0 auto;
@@ -145,7 +161,7 @@ body {
 				margin: $margin;
 			}
 
-			input[name="search"]{
+			input[name="search"], select{
 				padding: $padding;
 				margin: $margin;
 				border: 1px solid $brightteal;			
@@ -166,7 +182,7 @@ body {
 				
 				.date{
 					margin: 0 $margin $margin $margin;
-					margin-bottom: $margin*2;
+					margin-bottom: $margin;
 					padding: 0 $padding;
 					float: right;
 					width: 90px;
@@ -187,6 +203,12 @@ body {
 				.answer {
 					padding: $padding*2 $padding*2;
 					line-height: 1.8em;
+					height: 250px;
+					overflow-y: hidden;
+
+					@media screen and (min-width: $break-size) {
+						height: 120px;
+					}
 				}
 				.clearfix{
 					clear:both;
