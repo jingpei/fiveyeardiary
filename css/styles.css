@@ -41,9 +41,10 @@ body {
     margin: 35% auto; }
 
 .grp-days {
-  display: inline; }
+  margin-top: 100px; }
   .grp-days .circle {
-    margin: 0 auto;
+    float: left;
+    margin: 0 10px;
     width: 100px;
     height: 100px;
     background-color: #2ec6e2;

@@ -70,9 +70,10 @@ body {
 }
 
 .grp-days {
-	display: inline;
+	margin-top: $margin*10;
 	.circle {
-		margin: 0 auto;
+		float: left;
+		margin: 0 $margin;
 		width: 100px;
 		height: 100px;
 		background-color: $brightteal;

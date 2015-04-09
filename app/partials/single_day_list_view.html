@@ -7,11 +7,11 @@
 <div class="main">
 	<div class="grp-question">
 		<div class="circle">
-			<div class="day">Wednesday</div>
+			<div class="day">{{ week_day }}</div>
 		</div>
 
 		<div class="question">
-			<h3>What was something you were nervous to do? </h3>
+			<h3>{{ questions }}</h3>
 		</div>
 
 		<div class="form-error" ng-show="error_text !== ''">
