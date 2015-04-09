@@ -64,7 +64,8 @@ body {
     .grp-days .circle .day {
       margin: 30% auto; }
   .grp-days a {
-    text-decoration: none; }
+    text-decoration: none;
+    color: #000000; }
 
 .main {
   clear: both; }
