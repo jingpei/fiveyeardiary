@@ -63,6 +63,8 @@ body {
         font-size: 24px; } }
     .grp-days .circle .day {
       margin: 30% auto; }
+  .grp-days a {
+    text-decoration: none; }
 
 .main {
   clear: both; }
