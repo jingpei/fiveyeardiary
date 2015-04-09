@@ -43,6 +43,61 @@ body {
 	}
 }
 
+.pagenotfound {
+	margin: $margin*4 auto;
+	width: 200px;
+	height: 200px;
+	background-color: $brightteal;
+	border: 1px solid $brightteal;
+	text-align: center;
+	font-family: $font-family;
+	font-size: $font-size;
+	position: relative;
+
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+			
+	@media screen and (min-width: $break-size) {
+		width: 350px;
+		height: 350px;
+		font-size: $font-size-decorative;
+	}
+
+	.message{
+		margin: 35% auto;
+	}	
+}
+
+.grp-days {
+	display: inline;
+	.circle {
+		margin: 0 auto;
+		width: 100px;
+		height: 100px;
+		background-color: $brightteal;
+		border: 1px solid $brightteal;
+		text-align: center;
+		font-family: $font-family-decorative;
+		font-size: $font-size-decorative;
+		position: relative;
+
+		border-radius: 50%;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+			
+		@media screen and (min-width: $break-size) {
+			width: 100px;
+			height: 100px;
+			font-size: 24px;
+		}
+
+		.day {
+			margin: 30% auto;
+		}
+	}
+}
+
 .main {
 	//margin-top: $margin*3;
 	clear: both;
