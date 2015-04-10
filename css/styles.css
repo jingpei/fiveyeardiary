@@ -18,6 +18,9 @@ body {
     height: 100%;
     font-family: "Sacramento", cursive;
     font-size: 45px; }
+  .header a {
+    text-decoration: none;
+    color: #000; }
 
 .pagenotfound {
   margin: 40px auto;
@@ -65,7 +68,7 @@ body {
       margin: 30% auto; }
   .grp-days a {
     text-decoration: none;
-    color: #000000; }
+    color: #000; }
 
 .main {
   clear: both; }

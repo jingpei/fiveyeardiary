@@ -1,3 +1,4 @@
+$black: #000;
 $brightteal: #2ec6e2;
 $lightteal: #a0dde8;
 $lightog: #daf9ff;
@@ -41,6 +42,11 @@ body {
 		font-family: $font-family-decorative;
 		font-size: $font-size-decorative;
 	}
+
+	a {
+		text-decoration: none;
+		color: $black;
+	}
 }
 
 .pagenotfound {
@@ -71,6 +77,7 @@ body {
 
 .grp-days {
 	margin-top: $margin*10;
+
 	.circle {
 		float: left;
 		margin: 0 $margin;
@@ -99,7 +106,7 @@ body {
 	}
 	a {
 		text-decoration: none;
-		color: #000000;
+		color: $black;
 	}
 }
 
