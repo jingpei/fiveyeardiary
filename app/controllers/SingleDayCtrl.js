@@ -21,38 +21,40 @@ diaryApp.controller("SingleDayListController", function( $scope, $routeParams, F
 		angular.forEach(questions, function(question){
 			if(question.$id == $scope.week_day){
 				$scope.questions = question.$value
-				console.log($scope.questions)
 			}
 		})
 	})
 	
 
+	// Get entries corresponding with todays day from firebase
+	$scope.answers = $firebaseArray(entriesRef.child($scope.week_day))
 
-	var answers = {	
-		"Monday" : [
-			{ date: '2014/10/29', entry: 'Monday entry only one'}
-		],
-		"Tuesday" : [
-			{ date: '2014/10/31', entry: 'Tuesday entry only one'}
-		],
-		"Wednesday" : [
-			{ date: '2014/10/30', entry: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in'},
-			{ date: '2014/11/07', entry: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.'},
-			{ date: '2014/11/14', entry: 'Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.'}
-		],
-		"Thursday" : [
-			{ date: '2014/11/01', entry: 'Thursday entry only one'}
-		],
-		"Friday" : [
-			{ date: '2014/11/02', entry: 'Friday entry only one'}
-		],
-		"Saturday" : [
-			{ date: '2014/11/03', entry: 'Saturday entry only one'}
-		],
-		"Sunday" : [
-			{ date: '2014/11/03', entry: 'Saturday entry only one'}
-		]		
-	}
+
+	// var answers = {	
+	// 	"Monday" : [
+	// 		{ date: '2014/10/29', entry: 'Monday entry only one'}
+	// 	],
+	// 	"Tuesday" : [
+	// 		{ date: '2014/10/31', entry: 'Tuesday entry only one'}
+	// 	],
+	// 	"Wednesday" : [
+	// 		{ date: '2014/10/30', entry: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in'},
+	// 		{ date: '2014/11/07', entry: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.'},
+	// 		{ date: '2014/11/14', entry: 'Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.'}
+	// 	],
+	// 	"Thursday" : [
+	// 		{ date: '2014/11/01', entry: 'Thursday entry only one'}
+	// 	],
+	// 	"Friday" : [
+	// 		{ date: '2014/11/02', entry: 'Friday entry only one'}
+	// 	],
+	// 	"Saturday" : [
+	// 		{ date: '2014/11/03', entry: 'Saturday entry only one'}
+	// 	],
+	// 	"Sunday" : [
+	// 		{ date: '2014/11/03', entry: 'Saturday entry only one'}
+	// 	]		
+	// }
 
 	// var questions = {
 	// 	"Monday" : "Where do you live?",
@@ -73,10 +75,10 @@ diaryApp.controller("SingleDayListController", function( $scope, $routeParams, F
 	// 	{ date: '2014/11/14', entry: 'Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.'}
 	// ];
 
-	if( answers[$scope.week_day] ){
-		$scope.answers = answers[$scope.week_day];
-		//$scope.questions = questions[$scope.week_day];
-	}
+	// if( answers[$scope.week_day] ){
+	// 	$scope.answers = answers[$scope.week_day];
+	// 	$scope.questions = questions[$scope.week_day];
+	// }
 
 	$scope.error_text = "";
 	entry_text = {};
