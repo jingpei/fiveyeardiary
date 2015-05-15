@@ -1,14 +1,31 @@
 diaryApp.controller("SingleDayListController", function( $scope, $routeParams, FIREBASE_URL, $firebaseArray, $firebaseObject ){
 
 	//$scope.week_day = $routeParams.week_day;
+	
+	// Get today's day and take user automatically to the days entries
 	var d = new Date()
 	var day = d.getDay()
-	var ref = new Firebase(FIREBASE_URL);
-	var entriesRef = ref.child('entries');
-	var questionsRef = ref.child('questions');
 	var dayConversion = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 	
 	$scope.week_day = dayConversion[day]
+
+	// Setup Firebase References
+	var ref = new Firebase(FIREBASE_URL);
+	var entriesRef = ref.child('entries');
+	var questionsRef = ref.child('questions');
+	
+	// Get question corresponding with todays day from firebase
+	var questions = $firebaseArray(questionsRef)
+
+	questions.$loaded().then(function(){
+		angular.forEach(questions, function(question){
+			if(question.$id == $scope.week_day){
+				$scope.questions = question.$value
+				console.log($scope.questions)
+			}
+		})
+	})
+	
 
 
 	var answers = {	
@@ -37,15 +54,15 @@ diaryApp.controller("SingleDayListController", function( $scope, $routeParams, F
 		]		
 	}
 
-	var questions = {
-		"Monday" : "Where do you live?",
-		"Tuesday" : "What did you eat today?",
-		"Wednesday" : "If you could add one more hour to your day, what would you do with it?",
-		"Thursday" : "What is one thing that made you happy?",
-		"Friday" : "How much spare change do you have?",
-		"Saturday" : "Who are the most important people in your life?",
-		"Sunday" : "What was something you were nervous to do?"
-	}
+	// var questions = {
+	// 	"Monday" : "Where do you live?",
+	// 	"Tuesday" : "What did you eat today?",
+	// 	"Wednesday" : "If you could add one more hour to your day, what would you do with it?",
+	// 	"Thursday" : "What is one thing that made you happy?",
+	// 	"Friday" : "How much spare change do you have?",
+	// 	"Saturday" : "Who are the most important people in your life?",
+	// 	"Sunday" : "What was something you were nervous to do?"
+	// }
 
 	//questionsRef.set(questions);
 	//entriesRef.set(answers)
@@ -58,7 +75,7 @@ diaryApp.controller("SingleDayListController", function( $scope, $routeParams, F
 
 	if( answers[$scope.week_day] ){
 		$scope.answers = answers[$scope.week_day];
-		$scope.questions = questions[$scope.week_day];
+		//$scope.questions = questions[$scope.week_day];
 	}
 
 	$scope.error_text = "";
