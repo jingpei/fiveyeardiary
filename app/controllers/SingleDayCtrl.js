@@ -56,16 +56,6 @@ diaryApp.controller("SingleDayListController", function( $scope, $routeParams, F
 	// 	]		
 	// }
 
-	// var questions = {
-	// 	"Monday" : "Where do you live?",
-	// 	"Tuesday" : "What did you eat today?",
-	// 	"Wednesday" : "If you could add one more hour to your day, what would you do with it?",
-	// 	"Thursday" : "What is one thing that made you happy?",
-	// 	"Friday" : "How much spare change do you have?",
-	// 	"Saturday" : "Who are the most important people in your life?",
-	// 	"Sunday" : "What was something you were nervous to do?"
-	// }
-
 	//questionsRef.set(questions);
 	//entriesRef.set(answers)
 

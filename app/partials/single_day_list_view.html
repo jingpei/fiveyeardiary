@@ -22,6 +22,7 @@
 			<form name="daily_answer" novalidate>
 				<textarea name="daily_answer" rows="3" ng-maxlength="400" placeholder="Start writing..." required ng-model="entry_text.entry"></textarea>
 				<button class="btn-add-answer" ng-click="addEntry(entry_text)">Submit</button>
+				<p> {{ disableEntry }}
 			</form>	
 		</div>
 	</div>
