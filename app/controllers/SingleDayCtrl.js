@@ -120,7 +120,8 @@ diaryApp.controller("SingleDayListController", function( $scope, $routeParams, F
 		}
 		else{
 			new_entry.date = date;
-			$scope.answers.push( new_entry );
+			//$scope.answers.push( new_entry );
+			entriesRef.child($scope.week_day).push( new_entry )
 			$scope.entry_text = {};
 		}
 	}
