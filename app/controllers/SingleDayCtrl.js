@@ -1,8 +1,17 @@
-function SingleDayListController( $scope, $routeParams ){
+diaryApp.controller("SingleDayListController", function( $scope, $routeParams, FIREBASE_URL, $firebaseArray, $firebaseObject ){
 
-	$scope.week_day = $routeParams.week_day;
+	//$scope.week_day = $routeParams.week_day;
+	var d = new Date()
+	var day = d.getDay()
+	var ref = new Firebase(FIREBASE_URL);
+	var entriesRef = ref.child('entries');
+	var questionsRef = ref.child('questions');
+	var dayConversion = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+	
+	$scope.week_day = dayConversion[day]
 
-	var answers = {
+
+	var answers = {	
 		"Monday" : [
 			{ date: '2014/10/29', entry: 'Monday entry only one'}
 		],
@@ -37,6 +46,9 @@ function SingleDayListController( $scope, $routeParams ){
 		"Saturday" : "Who are the most important people in your life?",
 		"Sunday" : "What was something you were nervous to do?"
 	}
+
+	//questionsRef.set(questions);
+	//entriesRef.set(answers)
 
 	// $scope.answers = [
 	// 	{ date: '2014/10/30', entry: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in'},
@@ -103,6 +115,4 @@ function SingleDayListController( $scope, $routeParams ){
 	  return year + '/' + month + '/' + day;
 	}
 
-};
-
-diaryApp.controller("SingleDayListController", SingleDayListController);
+});
