@@ -1,4 +1,5 @@
 $black: #000;
+$white: #fff;
 $brightteal: #2ec6e2;
 $lightteal: #a0dde8;
 $lightog: #daf9ff;
@@ -15,13 +16,14 @@ $font-family: 'Lora', serif;
 $font-size: 14px;
 
 
-$break-size: 760px;
+$break-size: 760px;	
 
 @import url(http://fonts.googleapis.com/css?family=Sacramento);
 @import url(http://fonts.googleapis.com/css?family=Raleway);
 @import url(http://fonts.googleapis.com/css?family=Lora);
 
 body {
+	position: relative;
 	font-family: $font-family;
 	font-size: $font-size;
 	margin: 0;
@@ -29,9 +31,55 @@ body {
 	min-height: 100%;
 }
 
+.menu-list {
+	position: absolute;
+	top: 60px;
+	right: 0px;
+	z-index: 999;
+	width: 100%;
+
+	background-color: $lightteal;
+	padding: 0px;
+
+	@media screen and (min-width: $break-size) {
+		width: 250px;
+	}
+
+	ul {
+		width: 100%;
+		list-style-type: none;
+		line-height: 40px;
+		text-align: center;
+		margin: 0px;
+		padding: 0px;
+	}
+
+	li {
+		padding-left: $padding*2;
+		text-align: center;
+		color: $white;
+		border-bottom: 1px solid rgba(255,255,255,0.4);
+		
+		a {
+			text-decoration: none;
+		}
+	}
+
+	li:hover {
+		width: 100%;
+		padding-left: $padding*2;
+		background-color: $brightteal;
+		color: $white;
+		font-weight: bold;
+	}
+
+}
+
+
 .header {
 
 	height: 60px;
+	position: relative;
 	text-align: center;
 	-webkit-box-shadow: 0px 2px 4px $lightgray;
 	-moz-box-shadow: 0px 2px 4px $lightgray;
@@ -47,7 +95,33 @@ body {
 		text-decoration: none;
 		color: $black;
 	}
+
+	a:hover {
+		color: $brightteal;
+	}
 }
+
+// .menu {
+// 	display: inline-block;
+// 	position: absolute;
+// 	left: 90%;
+	
+	// @media screen and (min-width: $break-size) {
+	// 	left: 95%;
+	// }
+
+.glyphicon-menu-hamburger {
+	position: absolute;
+	display: inline-block;
+	right: 2%;
+	top: 15px;
+	font-size: 30px;
+}
+
+.glyphicon:hover {
+	color: $lightteal;
+}
+// }
 
 .pagenotfound {
 	margin: $margin*4 auto;
@@ -153,11 +227,13 @@ body {
 				width: 80%;
 				margin: $margin*2 auto;
 				font-family: $font-family;
+				font-size: 1.2em;
 				text-align: center;
 			}	
 		}
 
 		.form-error{
+			position: relative;
 			width: 80%;
 			margin: 0 auto;
 			padding: $padding;
@@ -170,6 +246,12 @@ body {
 			-webkit-box-sizing: border-box;
 			-moz-box-sizing: border-box;
 			box-sizing: border-box;
+		}
+
+		.glyphicon-remove {
+			position: absolute;
+			left: 95%;
+			top: 7px;
 		}
 
 		.form {
@@ -249,12 +331,12 @@ body {
 			.group {
 				width: 100%;
 				margin: $margin auto;
+				padding-bottom: $padding*4;
 				border-top: 1px solid $lightteal;
 				
 				.date{
 					margin: 0 $margin $margin $margin;
-					margin-bottom: $margin;
-					padding: 0 $padding;
+					padding: $padding;
 					float: right;
 					width: 90px;
 					background-color: $lightteal;
@@ -274,12 +356,6 @@ body {
 				.answer {
 					padding: $padding*2 $padding*2;
 					line-height: 1.8em;
-					height: 250px;
-					overflow-y: hidden;
-
-					@media screen and (min-width: $break-size) {
-						height: 120px;
-					}
 				}
 				.clearfix{
 					clear:both;

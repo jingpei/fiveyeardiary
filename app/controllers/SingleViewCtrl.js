@@ -1,4 +1,4 @@
-diaryApp.controller("SingleDayListController", function( $scope, $routeParams, FIREBASE_URL, $firebaseArray, $firebaseObject ){
+diaryApp.controller("SingleViewListController", function( $scope, $routeParams, FIREBASE_URL, $firebaseArray, $firebaseObject ){
 
 	//$scope.week_day = $routeParams.week_day;
 	
@@ -7,7 +7,7 @@ diaryApp.controller("SingleDayListController", function( $scope, $routeParams, F
 	var day = d.getDay()
 	$scope.dayConversion = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 	
-	$scope.week_day = $scope.dayConversion[day]
+	$scope.week_day = $routeParams.week_day
 
 	// Setup Firebase References
 	var ref = new Firebase(FIREBASE_URL);

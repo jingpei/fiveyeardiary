@@ -2,14 +2,48 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway);
 @import url(http://fonts.googleapis.com/css?family=Lora);
 body {
+  position: relative;
   font-family: "Lora", serif;
   font-size: 14px;
   margin: 0;
   margin-top: 0;
   min-height: 100%; }
 
+.menu-list {
+  position: absolute;
+  top: 60px;
+  right: 0px;
+  z-index: 999;
+  width: 100%;
+  background-color: #a0dde8;
+  padding: 0px; }
+  @media screen and (min-width: 760px) {
+    .menu-list {
+      width: 250px; } }
+  .menu-list ul {
+    width: 100%;
+    list-style-type: none;
+    line-height: 40px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px; }
+  .menu-list li {
+    padding-left: 10px;
+    text-align: center;
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4); }
+    .menu-list li a {
+      text-decoration: none; }
+  .menu-list li:hover {
+    width: 100%;
+    padding-left: 10px;
+    background-color: #2ec6e2;
+    color: #fff;
+    font-weight: bold; }
+
 .header {
   height: 60px;
+  position: relative;
   text-align: center;
   -webkit-box-shadow: 0px 2px 4px #d8d8d8;
   -moz-box-shadow: 0px 2px 4px #d8d8d8;
@@ -21,6 +55,18 @@ body {
   .header a {
     text-decoration: none;
     color: #000; }
+  .header a:hover {
+    color: #2ec6e2; }
+
+.glyphicon-menu-hamburger {
+  position: absolute;
+  display: inline-block;
+  right: 2%;
+  top: 15px;
+  font-size: 30px; }
+
+.glyphicon:hover {
+  color: #a0dde8; }
 
 .pagenotfound {
   margin: 40px auto;
@@ -103,8 +149,10 @@ body {
       width: 80%;
       margin: 20px auto;
       font-family: "Lora", serif;
+      font-size: 1.2em;
       text-align: center; }
     .main .grp-question .form-error {
+      position: relative;
       width: 80%;
       margin: 0 auto;
       padding: 5px;
@@ -115,6 +163,10 @@ body {
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box; }
+    .main .grp-question .glyphicon-remove {
+      position: absolute;
+      left: 95%;
+      top: 7px; }
     .main .grp-question .form {
       width: 80%;
       margin: 0 auto;
@@ -169,11 +221,11 @@ body {
     .main .ctn-answers-search .ctn-answers .group {
       width: 100%;
       margin: 10px auto;
+      padding-bottom: 20px;
       border-top: 1px solid #a0dde8; }
       .main .ctn-answers-search .ctn-answers .group .date {
         margin: 0 10px 10px 10px;
-        margin-bottom: 10px;
-        padding: 0 5px;
+        padding: 5px;
         float: right;
         width: 90px;
         background-color: #a0dde8;
@@ -187,12 +239,7 @@ body {
         border-bottom-right-radius: 5px; }
       .main .ctn-answers-search .ctn-answers .group .answer {
         padding: 10px 10px;
-        line-height: 1.8em;
-        height: 250px;
-        overflow-y: hidden; }
-        @media screen and (min-width: 760px) {
-          .main .ctn-answers-search .ctn-answers .group .answer {
-            height: 120px; } }
+        line-height: 1.8em; }
       .main .ctn-answers-search .ctn-answers .group .clearfix {
         clear: both; }
 
