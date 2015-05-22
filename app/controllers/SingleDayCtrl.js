@@ -29,6 +29,7 @@ diaryApp.controller("SingleDayListController", function( $scope, $routeParams, F
 	// Get entries corresponding with todays day from firebase
 	$scope.answers = $firebaseArray(entriesRef.child($scope.week_day))
 
+	//entriesRef.child("Sunday").push( {date: "2015/05/03", entry: "Is it weird that I’m an adult now?"} )
 
 	// var answers = {	
 	// 	"Monday" : [

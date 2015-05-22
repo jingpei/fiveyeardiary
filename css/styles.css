@@ -124,7 +124,8 @@ body {
     @media screen and (min-width: 760px) {
       .main .grp-question {
         width: 48%;
-        float: left; } }
+        float: left;
+        position: fixed; } }
     .main .grp-question .circle {
       margin: 0 auto;
       width: 200px;
@@ -195,8 +196,7 @@ body {
         border-radius: 5px; }
   .main .ctn-answers-search {
     width: 100%;
-    min-height: 100%;
-    overflow-y: scroll; }
+    min-height: 100%; }
     @media screen and (min-width: 760px) {
       .main .ctn-answers-search {
         width: 48%;

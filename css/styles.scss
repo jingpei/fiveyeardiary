@@ -195,6 +195,7 @@ body {
 		@media screen and (min-width: $break-size) {
 			width: 48%;
 			float: left;
+			position: fixed;
 		}
 		.circle{
 			margin: 0 auto;
@@ -293,7 +294,6 @@ body {
 	.ctn-answers-search {
 		width: 100%;
 		min-height: 100%;
-		overflow-y: scroll;
 		//background-color: #e5eaeb;
 
 		@media screen and (min-width: $break-size) {
