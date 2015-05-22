@@ -5,6 +5,7 @@ $lightteal: #a0dde8;
 $lightog: #daf9ff;
 $lightgray: #d8d8d8;
 $errorgray: #d9e5e9;
+$warningred: #f3a1a1;
 $backgroundcolor: #f4e2ca;
 $margin: 10px;
 $padding: 5px;
@@ -238,7 +239,7 @@ body {
 			width: 80%;
 			margin: 0 auto;
 			padding: $padding;
-			background-color: $lightgray;
+			background-color: $warningred;
 
 			-webkit-border-radius:5px;
 			-moz-border-radius:5px;
@@ -251,7 +252,7 @@ body {
 
 		.glyphicon-remove {
 			position: absolute;
-			left: 95%;
+			left: 94%;
 			top: 7px;
 		}
 

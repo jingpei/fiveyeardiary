@@ -157,7 +157,7 @@ body {
       width: 80%;
       margin: 0 auto;
       padding: 5px;
-      background-color: #d8d8d8;
+      background-color: #f3a1a1;
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
       border-radius: 5px;
@@ -166,7 +166,7 @@ body {
       box-sizing: border-box; }
     .main .grp-question .glyphicon-remove {
       position: absolute;
-      left: 95%;
+      left: 94%;
       top: 7px; }
     .main .grp-question .form {
       width: 80%;
