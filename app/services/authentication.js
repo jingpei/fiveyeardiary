@@ -6,15 +6,12 @@ diaryApp.factory('Authentication', function($firebase, $firebaseAuth, $routePara
 
 	var myObject = {
 		login : function(user){
-			//loggedInUser = user
 			return auth.$authWithPassword({
 				email: user.email,
 				password: user.password
 			}).then(function(authData){
 				uniqueId = authData.uid
-				console.log(authData)
 				loggedInUser = authData.password.email
-				console.log(loggedInUser)
 			})
 		}, 
 		register : function(user){
