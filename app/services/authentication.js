@@ -14,6 +14,18 @@ diaryApp.factory('Authentication', function($firebase, $firebaseAuth, $routePara
 			return auth.$createUser({
 				email: user.email,
 				password: user.password
+			}).then(function(authData){
+				var ref = new Firebase(FIREBASE_URL)
+				//update users group
+				//create a new entry with the unique uid created by createUser
+				var postRef = ref.child('users').child(authData.uid)
+				postRef.set({
+					date: Firebase.ServerValue.TIMESTAMP,
+					firstname: user.firstname,
+					lastname: user.lastname,
+					email: user.email,
+					password: user.password
+				})
 			})
 		},
 		logout : function(){

@@ -5,9 +5,9 @@ diaryApp.controller('RegistrationController', function( $scope, $location, $fire
 	$scope.login = function(){
 		Authentication.login($scope.user)
 		.then(function(user){
-			$location.path('/')
+			$location.path('/home')
 		}).catch(function(err){
-			console.log("error " + err.message)
+			console.log(err.message)
 		})
 	}
 
@@ -15,8 +15,9 @@ diaryApp.controller('RegistrationController', function( $scope, $location, $fire
 		Authentication.register($scope.user)
 		.then(function(user){
 			Authentication.login($scope.user)
-		}).cathc(function(err){
-			console.log("registration " + err.message)
+			$location.path('/home')	
+		}).catch(function(err){
+			console.log(err.message)
 		})
 	}
 
@@ -25,7 +26,7 @@ diaryApp.controller('RegistrationController', function( $scope, $location, $fire
 		then(function(){
 			$location.path('/login')
 		}).catch(function(err){
-			console.log("logout " + err.message)
+			console.log(err.message)
 		})
 	}
 })
