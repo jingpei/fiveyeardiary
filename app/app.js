@@ -6,7 +6,9 @@ diaryApp.config(function($routeProvider, $locationProvider){
 		.when('/home', {controller: "SingleDayListController", templateUrl: "app/partials/single_day_list_view.html"})
 		.when('/', {controller: "RegistrationController", templateUrl: "app/partials/login.html"})
 		.when('/register', {controller: "RegistrationController", templateUrl: "app/partials/register.html"})
-		.when('/:week_day', {controller: "SingleViewListController", templateUrl: "app/partials/single_read_only_list_view.html"})
+		.when('/logout', {controller: "RegistrationController", templateUrl: "app/partials/logout.html"})
+		.when('/profile', {controller: "SingleDayListController", templateUrl: "app/partials/profile.html"})
+		.when('/:week_day', {controller: "SingleDayListController", templateUrl: "app/partials/single_read_only_list_view.html"})
 		.when('/404', {templateUrl: "app/partials/404.html"})
 		.otherwise( {redirectTo: "/404"} );
 
@@ -19,7 +21,7 @@ diaryApp.config(function($routeProvider, $locationProvider){
 			console.log("Not logged in!")
 		}
 		else{
-			console.log("Logged in")
+			console.log("Logged in as: " + Authentication.isLoggedIn())
 		}
 	})
 })

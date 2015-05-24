@@ -1,13 +1,15 @@
-diaryApp.controller('RegistrationController', function( $scope, $location, $rootScope, $firebaseAuth, FIREBASE_URL, Authentication ){
+diaryApp.controller('RegistrationController', function( $scope, $location, $rootScope, $firebaseAuth, $firebaseObject, FIREBASE_URL, Authentication ){
 	var ref = new Firebase(FIREBASE_URL)
 	var auth = $firebaseAuth(ref)
+	var postRef = ref.child('users')
+
 
 	$scope.login = function(){
 		Authentication.login($scope.user)
 		.then(function(user){
-			$rootScope.loggedInUser = $scope.user.email
 			$location.path('/home')
 		}).catch(function(err){
+			$scope.message = err.message
 			console.log(err.message)
 		})
 	}
@@ -18,16 +20,13 @@ diaryApp.controller('RegistrationController', function( $scope, $location, $root
 			Authentication.login($scope.user)
 			$location.path('/home')	
 		}).catch(function(err){
+			$scope.message = err.message
 			console.log(err.message)
 		})
 	}
 
 	$scope.logout = function(){
-		Authentication.logout().
-		then(function(){
-			$location.path('/login')
-		}).catch(function(err){
-			console.log(err.message)
-		})
+		Authentication.logout()
+		$location.path('/')
 	}
 })

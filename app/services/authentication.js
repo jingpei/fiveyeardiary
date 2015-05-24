@@ -2,13 +2,19 @@ diaryApp.factory('Authentication', function($firebase, $firebaseAuth, $routePara
 	var ref = new Firebase(FIREBASE_URL)
 	var auth = $firebaseAuth(ref)
 	var loggedInUser
+	var uniqueId
 
 	var myObject = {
 		login : function(user){
-			loggedInUser = user
+			//loggedInUser = user
 			return auth.$authWithPassword({
 				email: user.email,
 				password: user.password
+			}).then(function(authData){
+				uniqueId = authData.uid
+				console.log(authData)
+				loggedInUser = authData.password.email
+				console.log(loggedInUser)
 			})
 		}, 
 		register : function(user){
@@ -31,11 +37,14 @@ diaryApp.factory('Authentication', function($firebase, $firebaseAuth, $routePara
 			})
 		},
 		logout : function(){
-			loggedInUser = ''
-			return auth.$unauth()
+			loggedInUser = undefined
+			auth.$unauth()
 		},
 		isLoggedIn : function(){
 			return (loggedInUser) ? loggedInUser : false
+		},
+		getUserToken : function(){
+			return uniqueId
 		}
 	}
 

@@ -116,6 +116,24 @@ body {
     text-decoration: none;
     color: #000; }
 
+.form-error {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  padding: 5px;
+  background-color: #f3a1a1;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.glyphicon-remove {
+  position: absolute;
+  left: 94%;
+  top: 7px; }
+
 .main {
   clear: both; }
   .main .grp-question {
@@ -152,22 +170,6 @@ body {
       font-family: "Lora", serif;
       font-size: 1.2em;
       text-align: center; }
-    .main .grp-question .form-error {
-      position: relative;
-      width: 80%;
-      margin: 0 auto;
-      padding: 5px;
-      background-color: #f3a1a1;
-      -webkit-border-radius: 5px;
-      -moz-border-radius: 5px;
-      border-radius: 5px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box; }
-    .main .grp-question .glyphicon-remove {
-      position: absolute;
-      left: 94%;
-      top: 7px; }
     .main .grp-question .form {
       width: 80%;
       margin: 0 auto;

@@ -1,4 +1,4 @@
-diaryApp.controller("SingleDayListController", function( $scope, $routeParams, FIREBASE_URL, $firebaseArray, $firebaseObject ){
+diaryApp.controller("SingleDayListController", function( $scope, $routeParams, FIREBASE_URL, $firebaseArray, $firebaseObject, Authentication ){
 
 	//$scope.week_day = $routeParams.week_day;
 	
@@ -7,13 +7,22 @@ diaryApp.controller("SingleDayListController", function( $scope, $routeParams, F
 	var day = d.getDay()
 	$scope.dayConversion = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 	
-	$scope.week_day = $scope.dayConversion[day]
+	if($routeParams.week_day !== undefined){
+		$scope.week_day = $routeParams.week_day
+	}
+	else{
+		$scope.week_day = $scope.dayConversion[day]
+	}
 
 	// Setup Firebase References
 	var ref = new Firebase(FIREBASE_URL);
+	var userRef = ref.child('users');
 	var entriesRef = ref.child('entries');
 	var questionsRef = ref.child('questions');
 	
+	//Setup user data
+	$scope.user = $firebaseObject(userRef.child(Authentication.getUserToken()))
+
 	// Get question corresponding with todays day from firebase
 	var questions = $firebaseArray(questionsRef)
 

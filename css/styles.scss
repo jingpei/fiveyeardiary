@@ -185,6 +185,28 @@ body {
 	}
 }
 
+.form-error{
+	position: relative;
+	width: 80%;
+	margin: 0 auto;
+	padding: $padding;
+	background-color: $warningred;
+
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius: 5px;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.glyphicon-remove {
+	position: absolute;
+	left: 94%;
+	top: 7px;
+}
+
 .main {
 	//margin-top: $margin*3;
 	clear: both;
@@ -232,28 +254,6 @@ body {
 				font-size: 1.2em;
 				text-align: center;
 			}	
-		}
-
-		.form-error{
-			position: relative;
-			width: 80%;
-			margin: 0 auto;
-			padding: $padding;
-			background-color: $warningred;
-
-			-webkit-border-radius:5px;
-			-moz-border-radius:5px;
-			border-radius: 5px;
-
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
-			box-sizing: border-box;
-		}
-
-		.glyphicon-remove {
-			position: absolute;
-			left: 94%;
-			top: 7px;
 		}
 
 		.form {

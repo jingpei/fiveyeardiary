@@ -3,12 +3,15 @@
 		<h3>Login</h3>
 		<p>Login to enjoy the goodness.</p>
 
-		<p class="error" ng-show="message" >{{ message }}</p>
+		<p class="form-error" ng-show="message" >
+			{{ message }}
+			<span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="message = ''"></span>
+		</p>
 
 		<input type="email" name="email" placeholder="email" autofocus
 		ng-model="user.email" ng-required="true"
 		>
-		<p class="error" ng-show="myform.email.$invalid && myform.email.$touched">
+		<p class="form-error" ng-show="myform.email.$invalid && myform.email.$touched">
 			Must use a valid email address.
 		</p>
 
@@ -16,7 +19,7 @@
 		ng-model="user.password" ng-required="true"
 		>
 
-		<p class="error" ng-show="myform.password.$invalid && myform.password.$touched">
+		<p class="form-error" ng-show="myform.password.$invalid && myform.password.$touched">
 			Must enter a password.
 		</p>
 
