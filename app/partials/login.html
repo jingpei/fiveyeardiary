@@ -1,0 +1,25 @@
+<section>
+	<form name="myform" novalidate ng-submit="login()">
+		<h3>Login</h3>
+		<p>Login to enjoy the goodness.</p>
+
+		<p class="error" ng-show="message" >{{ message }}</p>
+
+		<input type="email" name="email" placeholder="email" autofocus
+		ng-model="user.email" ng-required="true"
+		>
+		<p class="error" ng-show="myform.email.$invalid && myform.email.$touched">
+			Must use a valid email address.
+		</p>
+
+		<input type="password" name="password" placeholder="password"
+		ng-model="user.password" ng-required="true"
+		>
+
+		<p class="error" ng-show="myform.password.$invalid && myform.password.$touched">
+			Must enter a password.
+		</p>
+
+		<button ng-disabled="myform.$invalid" type="submit">Login</button>
+	</form>
+</section>
