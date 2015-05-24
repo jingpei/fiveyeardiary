@@ -1,10 +1,11 @@
-diaryApp.controller('RegistrationController', function( $scope, $location, $firebaseAuth, FIREBASE_URL, Authentication ){
+diaryApp.controller('RegistrationController', function( $scope, $location, $rootScope, $firebaseAuth, FIREBASE_URL, Authentication ){
 	var ref = new Firebase(FIREBASE_URL)
 	var auth = $firebaseAuth(ref)
 
 	$scope.login = function(){
 		Authentication.login($scope.user)
 		.then(function(user){
+			$rootScope.loggedInUser = $scope.user.email
 			$location.path('/home')
 		}).catch(function(err){
 			console.log(err.message)

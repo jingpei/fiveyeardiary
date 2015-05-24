@@ -11,4 +11,15 @@ diaryApp.config(function($routeProvider, $locationProvider){
 		.otherwise( {redirectTo: "/404"} );
 
 	//$locationProvider.html5Mode(true);
-});
+}).run(function($rootScope, $location, Authentication){
+	$rootScope.$on('$routeChangeStart', function(event){
+		if(!Authentication.isLoggedIn()){
+			event.preventDefault()
+			$location.path('/')
+			console.log("Not logged in!")
+		}
+		else{
+			console.log("Logged in")
+		}
+	})
+})
