@@ -207,6 +207,61 @@ body {
 	top: 7px;
 }
 
+.authentication_container{
+	width: 80%;
+	margin: $margin*5 auto;
+	border: 1px solid $lightgray;
+	padding: $padding*3 $padding*5 $padding*10 $padding*5;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+
+	p, h3 {
+		text-align: center;	
+	}
+	input {
+		width: 100%;
+		display: block;
+		padding: $padding;
+		margin: $margin 0;
+		border: 1px solid $brightteal;
+		font-family: $font-family;
+		font-size: $font-size;
+
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+	}
+
+	button{
+		width: 100px;
+		background-color: $brightteal;
+		padding: $padding;
+		border: none;
+		display: block;
+		margin: $margin*3 auto $margin*3 auto;
+
+
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;		
+	}
+
+	button:hover{
+		background-color: $white;
+		border: 1px solid $brightteal;
+	}
+
+	@media screen and (min-width: $break-size) {
+		width: 30%;
+	}
+}
+
 .main {
 	//margin-top: $margin*3;
 	clear: both;
@@ -288,6 +343,11 @@ body {
 				-webkit-border-radius:5px;
 				-moz-border-radius:5px;
 				border-radius: 5px;
+			}
+
+			.btn-add-answer:hover {
+				background-color: $white;
+				border: 1px solid $brightteal;
 			}
 		}
 	}

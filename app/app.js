@@ -14,8 +14,8 @@ diaryApp.config(function($routeProvider, $locationProvider){
 
 	//$locationProvider.html5Mode(true);
 }).run(function($rootScope, $location, Authentication){
-	$rootScope.$on('$routeChangeStart', function(event){
-		if(!Authentication.isLoggedIn()){
+	$rootScope.$on('$routeChangeStart', function(event, next){
+		if(!Authentication.isLoggedIn() && next.templateUrl !== "app/partials/register.html"){
 			event.preventDefault()
 			$location.path('/')
 			console.log("Not logged in!")

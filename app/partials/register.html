@@ -1,42 +1,44 @@
 <section>
-	<form name="myform" novalidate ng-submit="register()">
-		<h3>Register</h3>
-		<p>Register to enjoy the goodness.</p>
+	<div class="authentication_container">
+		<form name="myform" novalidate ng-submit="register()">
+			<h3>Register</h3>
+			<p>Register to start journaling.</p>
 
-		<p class="error" ng-show="message" >{{ message }}</p>
-		
-		<input type="firstname" name="firstname" placeholder="first name" 
-		ng-model="user.firstname" ng-required="true"
-		>
-		<p class="error" ng-show="myform.firstname.$invalid && myform.firstname.$touched">
-			Must enter a first name.
-		</p>
-
-
-		<input type="lastname" name="lastname" placeholder="last name" 
-		ng-model="user.lastname" ng-required="true"
-		>
-		<p class="error" ng-show="myform.lastname.$invalid && myform.lastname.$touched">
-			Must enter a last name.
-		</p>
+			<p class="error" ng-show="message" >{{ message }}</p>
+			
+			<input type="firstname" name="firstname" placeholder="first name" 
+			ng-model="user.firstname" ng-required="true"
+			>
+			<p class="error" ng-show="myform.firstname.$invalid && myform.firstname.$touched">
+				Must enter a first name.
+			</p>
 
 
+			<input type="lastname" name="lastname" placeholder="last name" 
+			ng-model="user.lastname" ng-required="true"
+			>
+			<p class="error" ng-show="myform.lastname.$invalid && myform.lastname.$touched">
+				Must enter a last name.
+			</p>
 
-		<input type="email" name="email" placeholder="email" 
-		ng-model="user.email" ng-required="true"
-		>
-		<p class="error" ng-show="myform.email.$invalid && myform.email.$touched">
-			Must use a valid email address.
-		</p>
 
-		<input type="password" name="password" placeholder="password"
-		ng-model="user.password" ng-required="true"
-		>
 
-		<p class="error" ng-show="myform.password.$invalid && myform.password.$touched">
-			Must enter a password.
-		</p>
+			<input type="email" name="email" placeholder="email" 
+			ng-model="user.email" ng-required="true"
+			>
+			<p class="error" ng-show="myform.email.$invalid && myform.email.$touched">
+				Must use a valid email address.
+			</p>
 
-		<button ng-disabled="myform.$invalid" type="submit">Login</button>
-	</form>
+			<input type="password" name="password" placeholder="password"
+			ng-model="user.password" ng-required="true"
+			>
+
+			<p class="error" ng-show="myform.password.$invalid && myform.password.$touched">
+				Must enter a password.
+			</p>
+
+			<button ng-disabled="myform.$invalid" type="submit">Register</button>
+		</form>
+	</div>
 </section>
