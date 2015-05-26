@@ -210,7 +210,7 @@ body {
 .authentication_container{
 	width: 80%;
 	margin: $margin*5 auto;
-	border: 1px solid $lightgray;
+	border: 1px solid $brightteal;
 	padding: $padding*3 $padding*5 $padding*10 $padding*5;
 
 	-webkit-box-sizing: border-box;
@@ -255,6 +255,10 @@ body {
 	button:hover{
 		background-color: $white;
 		border: 1px solid $brightteal;
+	}
+
+	button:active{
+		color: $brightteal;
 	}
 
 	@media screen and (min-width: $break-size) {

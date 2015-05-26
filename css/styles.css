@@ -137,7 +137,7 @@ body {
 .authentication_container {
   width: 80%;
   margin: 50px auto;
-  border: 1px solid #d8d8d8;
+  border: 1px solid #2ec6e2;
   padding: 15px 25px 50px 25px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -171,6 +171,8 @@ body {
   .authentication_container button:hover {
     background-color: #fff;
     border: 1px solid #2ec6e2; }
+  .authentication_container button:active {
+    color: #2ec6e2; }
   @media screen and (min-width: 760px) {
     .authentication_container {
       width: 30%; } }
