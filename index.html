@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="css/styles.css">
 
 	<script src="app/app.js"></script>
+	<script src="app/controllers/HeaderCtrl.js"></script>
 	<script src="app/controllers/SingleDayCtrl.js"></script>
 	<script src="app/controllers/RegisterCtrl.js"></script>
 	<script src="app/services/authentication.js"></script>
@@ -22,7 +23,7 @@
 </head>
 <body>
 
-<div ng-include="'app/includes/header.html'"></div>
+<div ng-include="'app/includes/header.html'" ng-controller="HeaderController"></div>
 <!-- <div class="header">
 	<div class="title">
 		<a href="#/home">one week</a>
