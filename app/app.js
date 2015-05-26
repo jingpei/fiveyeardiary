@@ -1,4 +1,4 @@
-var diaryApp = angular.module("diaryApp", ["ngRoute", "firebase"]).constant('FIREBASE_URL', 'https://fiveyeardiary.firebaseio.com/');
+var diaryApp = angular.module("diaryApp", ["ngRoute", "firebase", "ngAnimate"]).constant('FIREBASE_URL', 'https://fiveyeardiary.firebaseio.com/');
 
 diaryApp.config(function($routeProvider, $locationProvider){
 	$routeProvider

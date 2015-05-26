@@ -1,24 +1,12 @@
 <div class="header">
 	<div class="title">
 		<a href="#/home">one week</a>
-		<!-- <div class="menu"> -->
-			<span class="menu glyphicon glyphicon-menu-hamburger" aria-hidden="true" ng-click=toggle()></span>
-		<!-- </div> -->
+		<span class="menu glyphicon glyphicon-menu-hamburger" aria-hidden="true" ng-click=toggle()></span>
 	</div>
 </div>
 
 <div class="menu-list" ng-show="visible==true">
 	<ul>
-		<li ng-repeat="menuItem in menuItems"><a class="menu-data" href="{{ menuItem.link }}">{{ menuItem.item }}</a></li>
-<!-- 		<li><a class="menu-data" href="#/Monday">Monday</a></li>
-		<li><a class="menu-data" href="#/Tuesday">Tuesday</a></li>
-		<li><a class="menu-data" href="#/Wednesday">Wednesday</a></li>
-		<li><a class="menu-data" href="#/Thursday">Thursday</a></li>
-		<li><a class="menu-data" href="#/Friday">Friday</a></li>
-		<li><a class="menu-data" href="#/Saturday">Saturday</a></li>
-		<li><a class="menu-data" href="#/Sunday">Sunday</a></li>
-		<li><a class="menu-data" href="#/">Login</a></li>
-		<li><a class="menu-data" href="#/register">Register</a></li>
-		<li><a class="menu-data" href="#/logout">Logout</a></li> -->
+		<li ng-repeat="menuItem in menuItems"><a class="menu-data" href="{{ menuItem.link }}" ng-click=toggle()>{{ menuItem.item }}</a></li>
 	</ul>
 </div>
