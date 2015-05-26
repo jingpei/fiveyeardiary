@@ -17,8 +17,8 @@ diaryApp.controller('RegistrationController', function( $scope, $location, $root
 	$scope.register = function(){
 		Authentication.register($scope.user)
 		.then(function(user){
-			Authentication.login($scope.user)
-			$location.path('/home')	
+			$scope.login($scope.user)
+			//$location.path('/home')	
 		}).catch(function(err){
 			$scope.message = err.message
 			console.log(err.message)
