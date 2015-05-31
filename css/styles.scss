@@ -30,6 +30,7 @@ body {
 	margin: 0;
 	margin-top: 0;
 	min-height: 100%;
+
 }
 
 .menu-list {
@@ -77,10 +78,33 @@ body {
 }
 
 .menu-list.ng-hide-remove {
-  	-webkit-transition: fadein 3s ease-in;
-  	-moz-transition: fadein 3s ease-in;
-  	-o-transition: fadein 3s ease-in;
-  	transition: fadein 3s ease-in;	
+  	-webkit-animation: fadein 0.2s linear;
+  	-moz-animation: fadein 0.2s linear;
+  	-o-animation: fadein 0.2s linear;
+  	animation: fadein 0.2s linear;	
+}
+
+.menu-list.ng-hide-add {
+  	-webkit-animation: fadeout 1s linear;
+  	-moz-animation: fadeout 1s linear;
+  	-o-animation: fadeout 1s linear;
+  	animation: fadeout 1s linear;	
+}
+
+@-moz-keyframes fadein {
+    0%   {opacity: 0.2;}
+    25%  {opacity: 0.4;}
+    50%  {opacity: 0.6;}
+    75%  {opacity: 0.8;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes fadein {
+    0%   {opacity: 0.2;}
+    25%  {opacity: 0.4;}
+    50%  {opacity: 0.6;}
+    75%  {opacity: 0.8;}
+    100% {opacity: 1;}
 }
 
 @keyframes fadein {
@@ -91,12 +115,36 @@ body {
     100% {opacity: 1;}
 }
 
+@-moz-keyframes fadeout {
+    0%   {opacity: 1;}
+    25%  {opacity: 0.8;}
+    50%  {opacity: 0.6;}
+    75%  {opacity: 0.4;}
+    100% {opacity: 0.2;}
+}
+
+@-webkit-keyframes fadeout {
+    0%   {opacity: 1;}
+    25%  {opacity: 0.8;}
+    50%  {opacity: 0.6;}
+    75%  {opacity: 0.4;}
+    100% {opacity: 0.2;}
+}
+
+@keyframes fadeout {
+    0%   {opacity: 1;}
+    25%  {opacity: 0.8;}
+    50%  {opacity: 0.6;}
+    75%  {opacity: 0.4;}
+    100% {opacity: 0.2;}
+}
 
 .header {
 
 	height: 60px;
 	position: relative;
 	text-align: center;
+	background-color: $white;
 	-webkit-box-shadow: 0px 2px 4px $lightgray;
 	-moz-box-shadow: 0px 2px 4px $lightgray;
 	box-shadow: 0px 2px 4px $lightgray;
@@ -224,9 +272,11 @@ body {
 
 .authentication_container{
 	width: 80%;
-	margin: $margin*5 auto;
+	margin: $margin*8 auto;
 	border: 1px solid $brightteal;
 	padding: $padding*3 $padding*5 $padding*10 $padding*5;
+	background-color: $white;
+	opacity: 0.96;
 
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -278,6 +328,17 @@ body {
 
 	@media screen and (min-width: $break-size) {
 		width: 30%;
+	}
+}
+
+#changeCred {
+	width: 50%;
+	margin: $margin*5 auto 0 auto;
+	
+	input {
+		display: block;
+		width: 100%;
+		margin: $margin/2 auto $margin*2 auto;
 	}
 }
 

@@ -1,5 +1,8 @@
 <section>
-	<p>Email: {{ user.email }}</p>
-	<p>First Name: {{ user.firstname }}</p>
-	<p>Last Name: {{ user.lastname }}</p>
+	<form name="changeCred" id="changeCred" novalidate>
+		Email: <input name="email" type="email" value="{{ user.email }}">
+		Password: <input name="password" type="password" value="{{ user.password }}">
+		First Name: <input name="firstname" value="{{ user.firstname }}">
+		Last Name: <input name="lastname" value="{{ user.lastname }}">
+	</form>
 </section>

@@ -8,10 +8,14 @@ diaryApp.controller('HeaderController', function($scope, Authentication){
 		{ item: 'Friday', link: '#/Friday' },
 		{ item: 'Saturday', link: '#/Saturday' },
 		{ item: 'Sunday', link: '#/Sunday' },
+		{ item: 'Profile', link: '#/profile'},
 		{ item: 'Login', link: '#/' },
 		{ item: 'Register', link: '#/register' },
 		{ item: 'Logout', link: '#/logout' }
 	];
+
+	$scope.loggedInUser = Authentication.isLoggedIn()
+	console.log(Authentication.isLoggedIn())
 
 	$scope.toggle = function(){
 		if( $scope.visible == false ){

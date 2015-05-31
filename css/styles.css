@@ -42,11 +42,39 @@ body {
     font-weight: bold; }
 
 .menu-list.ng-hide-remove {
-  -webkit-transition: fadein 3s ease-in;
-  -moz-transition: fadein 3s ease-in;
-  -o-transition: fadein 3s ease-in;
-  transition: fadein 3s ease-in; }
+  -webkit-animation: fadein 0.2s linear;
+  -moz-animation: fadein 0.2s linear;
+  -o-animation: fadein 0.2s linear;
+  animation: fadein 0.2s linear; }
 
+.menu-list.ng-hide-add {
+  -webkit-animation: fadeout 1s linear;
+  -moz-animation: fadeout 1s linear;
+  -o-animation: fadeout 1s linear;
+  animation: fadeout 1s linear; }
+
+@-moz-keyframes fadein {
+  0% {
+    opacity: 0.2; }
+  25% {
+    opacity: 0.4; }
+  50% {
+    opacity: 0.6; }
+  75% {
+    opacity: 0.8; }
+  100% {
+    opacity: 1; } }
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0.2; }
+  25% {
+    opacity: 0.4; }
+  50% {
+    opacity: 0.6; }
+  75% {
+    opacity: 0.8; }
+  100% {
+    opacity: 1; } }
 @keyframes fadein {
   0% {
     opacity: 0.2; }
@@ -58,10 +86,44 @@ body {
     opacity: 0.8; }
   100% {
     opacity: 1; } }
+@-moz-keyframes fadeout {
+  0% {
+    opacity: 1; }
+  25% {
+    opacity: 0.8; }
+  50% {
+    opacity: 0.6; }
+  75% {
+    opacity: 0.4; }
+  100% {
+    opacity: 0.2; } }
+@-webkit-keyframes fadeout {
+  0% {
+    opacity: 1; }
+  25% {
+    opacity: 0.8; }
+  50% {
+    opacity: 0.6; }
+  75% {
+    opacity: 0.4; }
+  100% {
+    opacity: 0.2; } }
+@keyframes fadeout {
+  0% {
+    opacity: 1; }
+  25% {
+    opacity: 0.8; }
+  50% {
+    opacity: 0.6; }
+  75% {
+    opacity: 0.4; }
+  100% {
+    opacity: 0.2; } }
 .header {
   height: 60px;
   position: relative;
   text-align: center;
+  background-color: #fff;
   -webkit-box-shadow: 0px 2px 4px #d8d8d8;
   -moz-box-shadow: 0px 2px 4px #d8d8d8;
   box-shadow: 0px 2px 4px #d8d8d8; }
@@ -153,9 +215,11 @@ body {
 
 .authentication_container {
   width: 80%;
-  margin: 50px auto;
+  margin: 80px auto;
   border: 1px solid #2ec6e2;
   padding: 15px 25px 50px 25px;
+  background-color: #fff;
+  opacity: 0.96;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -193,6 +257,14 @@ body {
   @media screen and (min-width: 760px) {
     .authentication_container {
       width: 30%; } }
+
+#changeCred {
+  width: 50%;
+  margin: 50px auto 0 auto; }
+  #changeCred input {
+    display: block;
+    width: 100%;
+    margin: 5px auto 20px auto; }
 
 .main {
   clear: both; }
