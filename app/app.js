@@ -7,7 +7,7 @@ diaryApp.config(function($routeProvider, $locationProvider){
 		.when('/', {controller: "RegistrationController", templateUrl: "app/partials/login.html"})
 		.when('/register', {controller: "RegistrationController", templateUrl: "app/partials/register.html"})
 		.when('/logout', {controller: "RegistrationController", templateUrl: "app/partials/logout.html"})
-		.when('/profile', {controller: "SingleDayListController", templateUrl: "app/partials/profile.html"})
+		.when('/profile', {controller: "ProfileController", templateUrl: "app/partials/profile.html"})
 		.when('/:week_day', {controller: "SingleDayListController", templateUrl: "app/partials/single_read_only_list_view.html"})
 		.when('/404', {templateUrl: "app/partials/404.html"})
 		.otherwise( {redirectTo: "/404"} );

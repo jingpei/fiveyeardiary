@@ -42,6 +42,24 @@ diaryApp.factory('Authentication', function($firebase, $firebaseAuth, $routePara
 		},
 		getUserToken : function(){
 			return uniqueId
+		}, 
+		changeEmail : function(user){
+			return auth.$changeEmail({
+				oldEmail: user.oldEmail,
+				newEmail: user.newEmail,
+				password: user.password
+			}).then(function(){
+				console.log("Email changed!")
+			})
+		},
+		changePassword : function(user){
+			return auth.$changePassword({
+				email: user.email,
+				oldPassword: user.oldPassword,
+				newPassword: user.newPassword
+			}).then(function(){
+				console.log("Password changed!")
+			})
 		}
 	}
 

@@ -332,9 +332,13 @@ body {
 }
 
 #changeCred {
-	width: 50%;
-	margin: $margin*5 auto 0 auto;
+	width: 90%;
+	margin: $margin*2 auto 0 auto;
 	
+	@media screen and (min-width: $break-size) {
+		width: 50%;
+	}
+
 	input {
 		display: block;
 		width: 100%;
