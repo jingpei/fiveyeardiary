@@ -47,17 +47,27 @@ diaryApp.factory('Authentication', function($firebase, $firebaseAuth, $routePara
 			return auth.$changeEmail({
 				oldEmail: user.oldEmail,
 				newEmail: user.newEmail,
-				password: user.password
+				password: user.oldPassword
 			}).then(function(){
+				var ref = new Firebase(FIREBASE_URL)
+				//update users group
+				//create a new entry with the unique uid created by createUser
+				var postRef = ref.child('users').child(uniqueId)
+				postRef.update({ email: user.newEmail })				
 				console.log("Email changed!")
 			})
 		},
 		changePassword : function(user){
 			return auth.$changePassword({
-				email: user.email,
+				email: user.oldEmail,
 				oldPassword: user.oldPassword,
 				newPassword: user.newPassword
 			}).then(function(){
+				var ref = new Firebase(FIREBASE_URL)
+				//update users group
+				//create a new entry with the unique uid created by createUser
+				var postRef = ref.child('users').child(uniqueId)
+				postRef.update({ password: user.newPassword })	
 				console.log("Password changed!")
 			})
 		}

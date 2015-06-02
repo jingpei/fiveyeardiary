@@ -1,13 +1,18 @@
 <section>
+	<div class="form-success" ng-show="success_message !== ''">
+		{{ success_message }}
+		<span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="success_message = ''"></span>
+	</div>
+	
 	<form name="changeCred" id="changeCred" novalidate>
-		First Name: <input name="firstname" value="{{ user.firstname }}">
-		Last Name: <input name="lastname" value="{{ user.lastname }}">
-		Old Email: <input name="email" type="email" value="{{ user.email }}">
-		New Email: <input name="email" type="email">
-		Old Password: <input name="password" type="password">
-		New Password: <input name="password" type="password">
+		First Name: <input name="firstname" value="{{ user_change.firstname }}" ng-model="user_change.firstname">
+		Last Name: <input name="lastname" value="{{ user_change.lastname }}" ng-model="user_change.lastname">
+		Old Email: <input name="email" type="email" value="{{ user_change.email }}" ng-model="user_change.oldEmail">
+		New Email: <input name="email" type="email" ng-model="user_change.newEmail">
+		Old Password: <input name="password" type="password" ng-model="user_change.oldPassword">
+		New Password: <input name="password" type="password" ng-model="user_change.newPassword">
+		<button ng-disabled="myform.$invalid" type="submit" ng-click="changeAccount(user_change)">Change Account Info</button>
 		<button ng-disabled="myform.$invalid" type="submit" ng-click="changeEmail(user_change)">Change Email</button>
 		<button ng-disabled="myform.$invalid" type="submit" ng-click="changePassword(user_change)">Change Password</button>		
 	</form>
 </section>
-

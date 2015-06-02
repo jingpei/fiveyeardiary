@@ -7,6 +7,7 @@ $lightgray: #d8d8d8;
 $errorgray: #d9e5e9;
 $warningred: #f3a1a1;
 $backgroundcolor: #f4e2ca;
+$successgreen: #aadbaa;
 $margin: 10px;
 $padding: 5px;
 $font-family-decorative: 'Sacramento', cursive;
@@ -342,8 +343,43 @@ body {
 	input {
 		display: block;
 		width: 100%;
-		margin: $margin/2 auto $margin*2 auto;
+		margin: $margin/2 auto $margin auto;
 	}
+
+	button {
+		margin: $margin $margin 0 0;
+		background-color: $brightteal;
+		border: none;
+		padding: $padding $padding*2;
+		font-family: $font-family;
+		font-size: $font-size;
+
+		-webkit-border-radius:5px;
+		-moz-border-radius:5px;
+		border-radius: 5px;
+	}
+
+	button:hover {
+		background-color: $white;
+		border: 1px solid $brightteal;
+	}
+
+}
+
+.form-success {
+	position: relative;
+	width: 80%;
+	margin: $margin auto;
+	padding: $padding;
+	background-color: $successgreen;
+
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius: 5px;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .main {
